@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QuickWashPro - Delete Account</title>
+    <style>
+        :root {
+            --primary-color: #0066CC; /* Blue - clean/water themed */
+            --secondary-color: #4D94FF; /* Lighter blue */
+            --text-color: #333333;
+            --light-bg: #f5f9ff;
+            --border-color: #e0e0e0;
+            --error-color: #FF4444;
+            --success-color: #44BB77;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--light-bg);
+            padding: 0;
+            margin: 0;
+        }
+
+        header {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 1.5rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo h1 {
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            font-weight: 700;
+        }
+
+        .logo-icon {
+            font-size: 1.8rem;
+        }
+
+        main {
+            padding: 2rem 0;
+        }
+
+        .delete-container {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            padding: 2rem;
+            margin: 0 auto;
+            max-width: 600px;
+        }
+
+        h1, h2, h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        h1 {
+            font-size: 2.2rem;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        p {
+            margin-bottom: 1.2rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        input {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+
+        input:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 2px rgba(0, 102, 204, 0.2);
+        }
+
+        .btn {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            padding: 0.8rem 1.5rem;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.2s;
+            display: block;
+            width: 100%;
+            text-align: center;
+        }
+
+        .btn:hover {
+            background-color: var(--secondary-color);
+        }
+
+        .notice {
+            background-color: #f0f7ff;
+            border-left: 4px solid var(--primary-color);
+            padding: 1rem;
+            margin: 2rem 0 1rem;
+            font-size: 0.9rem;
+        }
+
+        .error-message {
+            color: var(--error-color);
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+            display: none;
+        }
+
+        .success-message {
+            color: var(--success-color);
+            text-align: center;
+            padding: 1rem;
+            background-color: rgba(68, 187, 119, 0.1);
+            border-radius: 4px;
+            margin-top: 1rem;
+            display: none;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 1.5rem 0;
+            margin-top: 3rem;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 1.8rem;
+            }
+
+            .delete-container {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <span class="logo-icon">💦</span>
+                <h1>QuickWashPro</h1>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="delete-container">
+            <h1>Delete Your Account</h1>
+            
+            <p>We're sorry to see you go. Please enter your email address to request account deletion.</p>
+            
+            <div id="deleteForm">
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                    <div class="error-message" id="emailError">Please enter a valid email address</div>
+                </div>
+                
+                <button type="button" class="btn" id="submitBtn">Request Account Deletion</button>
+                
+                <div class="notice">
+                    <p><strong>Important information:</strong> This action cannot be undone. When you delete your account:</p>
+                    <ul>
+                        <li>All your personal information will be removed from our systems</li>
+                        <li>Your profile will no longer be visible to customers or service providers</li>
+                        <li>Your service history and ratings will be anonymized</li>
+                        <li>Any scheduled car wash or detailing appointments will be canceled</li>
+                        <li>Any unused credits or gift cards will be forfeited</li>
+                        <li>You will not be able to access your account again</li>
+                    </ul>
+                    <p>If you are a service provider, please ensure all outstanding payments have been processed before requesting deletion.</p>
+                    <p>The deletion process may take up to 30 days to complete in accordance with our data retention policies.</p>
+                </div>
+            </div>
+            
+            <div class="success-message" id="successMessage">
+                <h2>Request Submitted</h2>
+                <p>We've received your account deletion request. You will receive a confirmation email shortly with further instructions. If you don't receive an email within 24 hours, please contact our support team at support@quickwashpro.com.</p>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 QuickWashPro. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const emailInput = document.getElementById('email');
+            const emailError = document.getElementById('emailError');
+            const submitBtn = document.getElementById('submitBtn');
+            const deleteForm = document.getElementById('deleteForm');
+            const successMessage = document.getElementById('successMessage');
+            
+            // Simple email validation
+            function isValidEmail(email) {
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                return emailRegex.test(email);
+            }
+            
+            emailInput.addEventListener('input', function() {
+                if (emailInput.value.trim() !== '' && !isValidEmail(emailInput.value)) {
+                    emailError.style.display = 'block';
+                } else {
+                    emailError.style.display = 'none';
+                }
+            });
+            
+            submitBtn.addEventListener('click', function() {
+                if (emailInput.value.trim() === '') {
+                    emailError.textContent = 'Please enter your email address';
+                    emailError.style.display = 'block';
+                    return;
+                }
+                
+                if (!isValidEmail(emailInput.value)) {
+                    emailError.textContent = 'Please enter a valid email address';
+                    emailError.style.display = 'block';
+                    return;
+                }
+                
+                // If validation passes, show success message
+                deleteForm.style.display = 'none';
+                successMessage.style.display = 'block';
+                
+                // In a real application, you would send the request to your server here
+                console.log('Account deletion requested for:', emailInput.value);
+            });
+        });
+    </script>
+</body>
+</html>
